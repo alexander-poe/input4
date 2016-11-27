@@ -1,11 +1,13 @@
 #vtxt {
-  width: 400px;
+  width: 90%;
   height: 200px;
 }
 
 #formBody input[type="submit"] {
-  height: 206px;
-  background-color: white;
+  height: 200px;
+  width: 9%;
+  background-color: #337AB7;
+  color: white;
 }
 
 #dropdown {
@@ -16,8 +18,11 @@ h3 {
   text-align: left;
 }
 
-#navbar {
-  width: 470px;
-  height:40px;
-  border: 1px solid black;
-  }
+
+#song {
+  background-color: #337AB7;
+} 
+
+.hidden {
+  display: none;
+}
