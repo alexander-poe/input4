@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>input3</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
 
+<div class="mainstate">
 <div id="navbuttons" class="btn-group btn-group-justified">
   <a id="v" class="btn btn-primary">Verse</a>
   <a id="c" class="btn btn-primary">Chorus</a>
-  <a id="b" class="btn btn-primary">bridge</a>
+  <a id="b" class="btn btn-primary">Bridge</a>
   </div>
       
  
@@ -19,14 +21,14 @@
   
 <div id="formBody" class="verseForm hidden ">
   <form id="verseForm">
-  <input type="text" autocomplete="off" id="vtxt">
+  <input type="text" placeholder="verse" autocomplete="off" id="vtxt">
   <input type="submit">
   </form>
   </div>
   
 <div id="formBody" class="chorusForm hidden">
   <form id="chorusForm">
-  <input type="text" autocomplete="off" id="vtxt">
+  <input type="text" placeholder="chorus" autocomplete="off" id="vtxt">
   <input type="submit">
   </form>  
   </div>
@@ -34,20 +36,32 @@
   
 <div id="formBody" class="bridgeForm hidden">
   <form id="bridgeForm">
-  <input type="text" autocomplete="off" id="vtxt">
+  <input type="text" placeholder="bridge" autocomplete="off" id="vtxt">
   <input type="submit">
   </form>  
   </div>
 
-<div id="song">
-   
+  
+  <div id="songview" class="btn-group btn-group-justified">
+
+  <a id="songview" class="btn btn-primary">View Song</a>
+  </div>
+  </div>
+<div id="song" class="hidden">
+
+   <div id="back" class="btn-group btn-group-justified">
+
+  <a id="back" class="btn btn-primary">Back</a>
+  </div>
+  </div> 
   </div> 
 
 
 
 
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script type="text/javascript" src="jquery.dropdown.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>

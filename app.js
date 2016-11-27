@@ -1,16 +1,20 @@
 $(function() {
 
 var song = [];
-var verse = '';
-var chorus = '';
-var count = 0;
 
+
+function renderSong(song) {
+  var input = song;
+  $('#song').append('<dl>' + input + '</dl>');
+  return; 
+}  
+  
 
 $('#verseForm').submit(function(e) {
   e.preventDefault();
   var input = $('#verseForm input:first').val();
   song.push(input);
-  renderSong(input);
+  renderSong("Verse: " + '</br>' + input);
   $('#verseForm input:first').val('');
   
 })
@@ -19,7 +23,7 @@ $('#chorusForm').submit(function(e) {
   e.preventDefault();
   var input = $('#chorusForm input:first').val();
   song.push(input);
-  renderSong(input);
+  renderSong("Chorus: " + '</br>' + input);
   $('#chorusForm input:first').val('');
   
 })
@@ -29,10 +33,12 @@ $('#bridgeForm').submit(function(e) {
   e.preventDefault();
   var input = $('#bridgeForm input:first').val();
   song.push(input);
-  renderSong(input);
+  renderSong("Bridge: " + '</br>' + input);
   $('#bridgeForm input:first').val('');
   
 })
+
+
 
 $('.btn-group').on('click', '#v', function(e) {
   $('.verseForm').removeClass('hidden');
@@ -54,12 +60,18 @@ $('.btn-group').on('click', '#b', function(e) {
    
 }); 
 
+$('#songview').on('click', function(e) {
+  $('.mainstate').addClass('hidden');
+  $('#song').removeClass('hidden'); 
+});
 
-function renderSong(song) {
-  var input = song;
-  $('#song').append('<dl>' + input + '</dl>');
-  return; 
-}
+$('#back').on('click', function(e) {
+  $('#song').addClass('hidden'); 
+  $('.mainstate').removeClass('hidden');
+});
+
+
+
 
 
 
