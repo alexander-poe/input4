@@ -2,6 +2,31 @@ $(function() {
 
 var song = [];
 
+var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+var searchObj = {
+  tagmode: "any",
+  format: "json"
+}; 
+  
+function newSearch(){
+  $.getJSON( flickerAPI, searchObj, changePicture)
+
+}
+
+function changePicture(flickerdata) {
+  var photo = flickerdata.items[0].description;
+  var lotho = flickerdata.items[0].media.m;
+  var bckHTML = ' ' +
+    '<img src="' + lotho + '" width="100%" height="100%"/>'
+  console.log(lotho);
+  
+  return $('#iamg').html(bckHTML);
+
+}
+
+
+
 
 function renderSong(song) {
   var input = song;
@@ -16,7 +41,7 @@ $('#verseForm').submit(function(e) {
   song.push(input);
   renderSong("Verse: " + '</br>' + input);
   $('#verseForm input:first').val('');
-  
+  newSearch();
 })
 
 $('#chorusForm').submit(function(e) {
@@ -63,11 +88,16 @@ $('.btn-group').on('click', '#b', function(e) {
 $('#songview').on('click', function(e) {
   $('.mainstate').addClass('hidden');
   $('#song').removeClass('hidden'); 
+  $('#back').removeClass('hidden');
+  $('#iamg').addClass('hidden');
+
 });
 
 $('#back').on('click', function(e) {
   $('#song').addClass('hidden'); 
   $('.mainstate').removeClass('hidden');
+  $('#back').addClass('hidden');
+  $('#iamg').removeClass('hidden');
 });
 
 
